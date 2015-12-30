@@ -12,9 +12,13 @@
 
 - (void)passIndex:(NSInteger)index;
 
+
+
 @end
 
 typedef void(^PassIndex)(NSInteger index);
+
+typedef void(^PlubBtenPressBlock)();
 
 @interface WBTabBar : UIView
 
@@ -26,6 +30,6 @@ typedef void(^PassIndex)(NSInteger index);
 
 @property (nonatomic,copy) PassIndex passIndex;
 
-
+@property (nonatomic,copy) PlubBtenPressBlock plBlock;
 
 @end

@@ -12,14 +12,14 @@
 #import "DiscoveryTableViewController.h"
 #import "PersonalTableViewController.h"
 #import "WBTabBar.h"
-
+#import <PopMenu.h>
 @interface RootTabBarController () <WBTabBarDelegate>
 
 /** 自定义TabBar*/
 @property (nonatomic, strong) WBTabBar *wbTabBar;
 
 // @a assing @t strong  @y copy @w weak
-
+@property (nonatomic,strong) PopMenu * popMenu;
 
 @end
 
@@ -38,11 +38,27 @@
     
     
     [self addViewControlers];
-    
-   
-    
+ 
 }
-
+-(PopMenu *)popMenu{
+    if (_popMenu == nil) {
+        NSMutableArray *items = [NSMutableArray array];
+        
+        NSArray * titleArr = @[@"文字",@"相册",@"拍摄",@"签到",@"点评",@"更多"];
+        NSArray * imageNameArr = @[@"tabbar_compose_idea",@"tabbar_compose_photo",@"tabbar_compose_weibo",@"tabbar_compose_lbs",@"tabbar_compose_review",@"tabbar_compose_more"];
+        for (int i = 0; i < titleArr.count; i++) {
+            MenuItem * item  = [[MenuItem alloc]initWithTitle:titleArr[i] iconName:imageNameArr[i] glowColor:[UIColor magentaColor]];
+            [items addObject:item];
+        }
+        
+        _popMenu = [[PopMenu alloc]initWithFrame:[UIScreen mainScreen].bounds items:items];
+        _popMenu.didSelectedItemCompletion = ^(MenuItem * item){
+                                                                                                    zzzzz
+            NSLog(@"点击了");
+        };
+    }
+    return _popMenu;
+}
 
 
 
@@ -56,7 +72,10 @@
     self.wbTabBar.passIndex = ^(NSInteger index) {
         weakSelf.selectedIndex = index;
     };
-    
+    self.wbTabBar.plBlock = ^{
+//        [weakSelf.popMenu showMenuAtView:];
+        
+    };
     
     [self.tabBar addSubview:self.wbTabBar];
     self.wbTabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];

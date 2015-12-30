@@ -20,6 +20,7 @@
 		11CDB4F61C3220A000E07899 /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4F51C3220A000E07899 /* PersonalTableViewController.m */; };
 		11CDB4F91C322F0100E07899 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4F81C322F0100E07899 /* WBTabBar.m */; };
 		11CDB4FC1C322F8C00E07899 /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4FB1C322F8C00E07899 /* WBTabBarButton.m */; };
+		391EC541C6C7E7D4AB92F1AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0106231B3348546B806432 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,9 @@
 		11CDB4FA1C322F8C00E07899 /* WBTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarButton.h; sourceTree = "<group>"; };
 		11CDB4FB1C322F8C00E07899 /* WBTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarButton.m; sourceTree = "<group>"; };
 		11CDB4FD1C32310500E07899 /* WB-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WB-PrefixHeader.pch"; sourceTree = "<group>"; };
+		3AFDC54B8C39A623AC3429C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3D0106231B3348546B806432 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		935C754591C2943C31E259AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391EC541C6C7E7D4AB92F1AC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				11CDB4A71C321B3400E07899 /* CD1505Weibo */,
 				11CDB4C11C321B3400E07899 /* CD1505WeiboTests */,
 				11CDB4A61C321B3400E07899 /* Products */,
+				94D8913C99C78A0998E6B924 /* Pods */,
+				A1138AE00D8B8CEF71472147 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,6 +366,23 @@
 			name = InterfaceBuilder;
 			sourceTree = "<group>";
 		};
+		94D8913C99C78A0998E6B924 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AFDC54B8C39A623AC3429C8 /* Pods.debug.xcconfig */,
+				935C754591C2943C31E259AB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A1138AE00D8B8CEF71472147 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D0106231B3348546B806432 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,9 +390,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11CDB4C81C321B3400E07899 /* Build configuration list for PBXNativeTarget "CD1505Weibo" */;
 			buildPhases = (
+				4D4B7DEBF308E0E34768E044 /* Check Pods Manifest.lock */,
 				11CDB4A11C321B3400E07899 /* Sources */,
 				11CDB4A21C321B3400E07899 /* Frameworks */,
 				11CDB4A31C321B3400E07899 /* Resources */,
+				698E084E7FFC777949918074 /* Embed Pods Frameworks */,
+				B8C181C519C17BFB23BD287A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -453,6 +480,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D4B7DEBF308E0E34768E044 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		698E084E7FFC777949918074 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8C181C519C17BFB23BD287A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11CDB4A11C321B3400E07899 /* Sources */ = {
@@ -591,6 +666,7 @@
 		};
 		11CDB4C91C321B3400E07899 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AFDC54B8C39A623AC3429C8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CD1505Weibo/WB-PrefixHeader.pch";
@@ -602,6 +678,7 @@
 		};
 		11CDB4CA1C321B3400E07899 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 935C754591C2943C31E259AB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CD1505Weibo/WB-PrefixHeader.pch";
@@ -664,6 +741,7 @@
 				11CDB4CA1C321B3400E07899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11CDB4CB1C321B3400E07899 /* Build configuration list for PBXNativeTarget "CD1505WeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +750,7 @@
 				11CDB4CD1C321B3400E07899 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

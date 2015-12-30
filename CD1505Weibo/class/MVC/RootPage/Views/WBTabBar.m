@@ -8,7 +8,7 @@
 
 #import "WBTabBar.h"
 #import "WBTabBarButton.h"
-
+#import <PopMenu.h>
 @interface WBTabBar ()
 
 /** 按钮数组*/
@@ -39,9 +39,20 @@
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         self.plusBtn = plusBtn;
+        [plusBtn addTarget:self action:@selector(plusBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    
+    
     return self;
 }
+//加号点击事件
+-(void)plusBtnPressed{
+    if (_plBlock) {
+        self.plBlock();
+    }
+}
+
 
 
 - (NSMutableArray *)buttonArray
